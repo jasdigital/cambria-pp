@@ -807,14 +807,16 @@ const App: React.FC = () => {
               onClick={() => {
                 if ((window as any).replayMontageVideos) {
                   (window as any).replayMontageVideos();
+                } else if ((window as any).playMontageVideos) {
+                  (window as any).playMontageVideos();
                 }
               }}
               className="flex items-center gap-1.5 px-3 py-1.5 bg-black text-white rounded-full text-xs font-medium hover:bg-black/80 transition-colors"
             >
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1v2.5L11.5 0 8 3.5V6a5 5 0 1 0 5 5h2a7 7 0 0 1-7 7z"/>
+                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
               </svg>
-              Replay Videos
+              Play Videos
             </button>
           )}
         </div>

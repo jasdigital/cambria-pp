@@ -106,18 +106,6 @@ const SocialVideoMontageSlide: React.FC<SocialVideoMontageSlideProps> = ({ onRep
             </div>
           ))}
         </div>
-        
-        {/* Play button overlay when videos not playing */}
-        {!videosPlaying && (
-          <button
-            onClick={handlePlayVideos}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/70 transition-colors z-30"
-          >
-            <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-            </svg>
-          </button>
-        )}
       </div>
 
       <div className="mt-3 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg p-3 text-center">
