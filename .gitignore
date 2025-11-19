@@ -36,9 +36,9 @@ pnpm-debug.log*
 *.sw?
 
 # Large media assets - exclude from git
-public/images/
-public/video/
-public/media/
+#public/images/
+#public/video/
+#public/media/
 
 # Keep directory structure with placeholder files
 !public/images/.gitkeep
