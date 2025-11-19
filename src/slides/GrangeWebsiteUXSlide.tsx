@@ -37,7 +37,7 @@ const GrangeWebsiteUXSlideContent: React.FC = () => {
         {
           issue: "Hero Media & Showroom Experience",
           context: "Use dealership video/imagery showcasing showroom experience, blend lifestyle photography with vehicle packshots, and align all visuals with OEM and group brand standards.",
-          /*screenshots: ["/images/website_ux/Home_CTA.png"]*/
+          /*screenshots: ["/images/webp/website_ux/Home_CTA.webp"]*/
           /*
           videos: [
             "/video/HM - Aston Martin Vantage Spitfire - 24102024 - Main Reel.mp4",
