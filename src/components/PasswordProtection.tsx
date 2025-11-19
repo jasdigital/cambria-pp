@@ -41,11 +41,11 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ children }) => 
     <div className="min-h-screen w-full flex items-center justify-center" style={{ backgroundColor: '#fff' }}>
       <div className="w-full max-w-md p-8">
         {/* Cambria Logo */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-2">
           <img 
-            src="/images/logos/cambria-logo.svg" 
+            src="/images/logos/cambria.png" 
             alt="Cambria Automobiles" 
-            className="h-16 mx-auto mb-8"
+            className="h-50 mx-auto mb-2"
           />
         </div>
 
@@ -92,11 +92,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ children }) => 
             </button>
           </form>
 
-          <div className="mt-6 text-center">
-            <p className="text-xs text-white/50">
-              Protected content - Authorized access only
-            </p>
-          </div>
+          
         </div>
       </div>
     </div>
