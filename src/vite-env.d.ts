@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_VIDEO_CDN: string;
+  readonly VITE_APP_PASSWORD: string;
 }
 
 interface ImportMeta {
