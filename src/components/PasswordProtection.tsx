@@ -92,11 +92,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ children }) => 
             </button>
           </form>
 
-          <div className="mt-6 text-center">
-            <p className="text-xs text-white/50">
-              Protected content - Authorized access only
-            </p>
-          </div>
+          
         </div>
       </div>
     </div>

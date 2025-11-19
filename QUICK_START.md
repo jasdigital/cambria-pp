@@ -30,6 +30,7 @@ git push origin main
 ```
 Amplify auto-deploys from GitHub
 
+<<<<<<< HEAD
 ## Password Protection
 
 The presentation is password-protected. Default password: **grange2025**
@@ -38,18 +39,26 @@ To change the password, update the environment variable:
 - `.env.development` or `.env.production`: `VITE_APP_PASSWORD=your_password`
 - Amplify Console: Add environment variable `VITE_APP_PASSWORD`
 
+=======
+>>>>>>> b4955b6 (Production version 1)
 ## Environment Variables
 
 ### .env.development (Local)
 ```
 VITE_VIDEO_CDN=
+<<<<<<< HEAD
 VITE_APP_PASSWORD=grange2025
+=======
+>>>>>>> b4955b6 (Production version 1)
 ```
 
 ### .env.production (S3)
 ```
 VITE_VIDEO_CDN=https://grange-presentation.s3.eu-west-2.amazonaws.com
+<<<<<<< HEAD
 VITE_APP_PASSWORD=grange2025
+=======
+>>>>>>> b4955b6 (Production version 1)
 ```
 
 ## Common Commands
