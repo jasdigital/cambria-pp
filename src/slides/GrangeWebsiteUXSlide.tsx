@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Section {
   id: string;
@@ -7,140 +7,206 @@ interface Section {
   details: {
     issue: string;
     context: string;
-    screenshot?: string;
+    screenshots?: string[];
+    screenshotLayout?: "stack" | "grid-2";
+    videos?: string[];
   }[];
 }
 
 const GrangeWebsiteUXSlideContent: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [currentDetailIndex, setCurrentDetailIndex] = useState<number>(0);
+
+  // Communicate expanded section and detail index to App for video control
+  useEffect(() => {
+    (window as any).uxExpandedSection = expandedSection;
+    (window as any).uxDetailIndex = currentDetailIndex;
+  }, [expandedSection, currentDetailIndex]);
 
   const sections: Section[] = [
     {
       id: "experience",
-      title: "Website Experience",
+      title: "Experience",
       summary: [
-        "Premium brand basis but inconsistent identity",
-        "Hero media lacks luxury storytelling",
-        "Typography hierarchy needs strengthening",
-        "More aspirational visuals required"
+        "Premium brand basis",
+        "Enhance luxury storytelling",
+        "Typography hierarchy",
+        "Extended iconography system",
       ],
       details: [
         {
-          issue: "Inconsistent Brand Identity",
-          context: "While Grange has established premium credentials, the website doesn't consistently reflect the luxury positioning across all touchpoints. Some pages feel corporate while others lack the sophistication expected from brands like Bentley and Lamborghini.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
+          issue: "Hero Media & Showroom Experience",
+          context: "Use dealership video/imagery showcasing showroom experience, blend lifestyle photography with vehicle packshots, and align all visuals with OEM and group brand standards.",
+          /*screenshots: ["/images/website_ux/Home_CTA.png"]*/
+          /*
+          videos: [
+            "/video/HM - Aston Martin Vantage Spitfire - 24102024 - Main Reel.mp4",
+            "/video/DK Aston Martin Valkyrie ASMR.mp4",
+            "/video/HM - Anglesey Sprint - 04-05052024 - Reel.mp4"
+          ]
+            */
         },
+        
         {
-          issue: "Hero Media Lacks Storytelling",
-          context: "Current hero sections use generic stock imagery that doesn't convey the emotional narrative of luxury automotive ownership. Need lifestyle photography showing the experience, not just the vehicles.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
+          issue: "Hierarchy & Iconography",
+          context: "Headlines compete with body copy - difficult to scan. Need stronger typographic scale with clear font sizes, weights, and spacing to guide attention.",
+          screenshots: ["/images/website_ux/grange_homepage_typography_hierarchy.png","/images/website_ux/Clearer_HierarchyInformation_Iconography.png","/images/website_ux/grange_hierarchy_positive.png"]
         },
-        {
-          issue: "Typography Hierarchy",
-          context: "Font sizes, weights, and spacing lack clear hierarchy. Headlines compete with body copy, making it difficult for users to scan content effectively. Need stronger typographic scale to guide attention.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        }
+        
       ]
     },
     {
       id: "navigation",
-      title: "Navigation & UX",
-      summary: [
-        "Menu too dense for a premium feel",
-        "Sticky header intrusive on scroll",
-        "Inconsistent breadcrumbs across journeys",
-        "Mobile spacing and tap targets too tight",
-        "Information architecture needs simplifying"
-      ],
-      details: [
-        {
-          issue: "Dense Navigation Menu",
-          context: "The main navigation contains too many options at the top level, creating visual clutter. Premium brands typically embrace simplicity - fewer, more intentional navigation choices that guide users confidently.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        },
-        {
-          issue: "Intrusive Sticky Header",
-          context: "The persistent header takes up significant screen real estate on scroll, particularly problematic on mobile devices where screen space is precious. Consider a minimal sticky header or auto-hide behavior.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        },
-        {
-          issue: "Mobile Touch Targets",
-          context: "Button and link touch targets fall below the 44x44px accessibility standard in many areas. This creates frustration on mobile devices and doesn't reflect the premium, frictionless experience expected.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        }
-      ]
-    },
-    {
-      id: "visual",
-      title: "Visual Identity & Design",
-      summary: [
-        "Increase whitespace for a luxury tone",
-        "Use more lifestyle and dealership photography",
-        "Refine CTA and button styling for consistency",
-        "Unify brand colours across templates",
-        "Introduce a simple iconography system"
-      ],
-      details: [
-        {
-          issue: "Insufficient Whitespace",
-          context: "Luxury brands use generous whitespace to create breathing room and elevate content. Current design feels cramped in places. More padding, larger margins, and strategic emptiness would enhance the premium perception.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        },
-        {
-          issue: "Photography Style",
-          context: "Need more curated lifestyle photography showing the Grange experience - showrooms, customer interactions, delivery moments. Current imagery is too product-focused without emotional context.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        },
-        {
-          issue: "Button & CTA Consistency",
-          context: "Multiple button styles appear across the site - different borders, fills, shadows, and hover states. Establish a clear primary/secondary/tertiary button system with consistent styling and interaction patterns.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        },
-        {
-          issue: "Brand Color Unification",
-          context: "Color usage varies across templates and sections. Define and enforce a strict color palette with clear usage guidelines - primary brand colors, supporting neutrals, accent colors for CTAs, and semantic colors for states.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
-        }
-      ]
-    },
-    {
-      id: "homepage",
-      title: "Homepage Review",
+      title: "Navigation",
       summary: [
         "Clarify priority journeys: Used, New, Aftersales",
-        "Use more premium dealership imagery in hero",
-        "Add clear value propositions for the group",
-        "Improve CTA placement and hierarchy",
-        "Hero should deliver more emotional impact"
+        "Size and utility of sticky menu",
+        "Information architecture",
+        "Introduce an extended iconography system",
+        "Breadcrumbs across journeys",
       ],
       details: [
         {
-          issue: "Journey Prioritization",
-          context: "The homepage tries to serve all audiences equally, diluting focus. Need clear priority given to the highest-value journeys: Used Car buyers (highest volume), New Car prospects, and Service/Aftersales customers. Each should have a prominent, dedicated path.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
+          issue: "Sticky Menu",
+          context: "The main navigation contains too many options at the top level. Always-visible quick actions will embrace simplicity - fewer, more intentional navigation choices that guide users confidently.",
+          screenshots: [
+            "/images/website_ux/hr_owen_header.png",
+            "/images/website_ux/lookers_landrover_header-seach-cta-actions.png"
+          ]
+        },
+
+        {
+          issue: "Book a Service Journey - 5 Steps to Primary Action",
+          context: "Users must navigate through 5 separate screens to book a service. This multi-level journey can create friction and abandonment. Service booking should be simplified.",
+          screenshots: [
+            "/images/book_service/service1.png",
+            "/images/book_service/service2.png",
+            "/images/book_service/service3.png",
+            "/images/book_service/service4.png",
+            "/images/book_service/service5.png"
+          ],
+          screenshotLayout: "stack"
+        },
+        
+        {
+          issue: "Clear Pathways",
+          context: "Primary journeys (Used Cars, New Models, Service) lack clear visual hierarchy. Need distinct entry points with obvious labels and icons that guide users confidently without confusion.",
+          screenshots: ["/images/website_ux/Home_CTA.png","/images/website_ux/clearer_pathways.png","/images/website_ux/image_hierarchy_actionable_elements.png","/images/website_ux/breadcrumbs.png","/images/website_ux/grange_breadcrumbs.png"]
+        },
+        
+      ]
+    },
+    {
+      id: "conversion",
+      title: "Conversion",
+      summary: [
+        "Improve CTA placement and hierarchy",
+        "Add clear value propositions",
+        "Form friction in enquiry process",
+        "Trust signals",
+      ],
+      details: [
+        {
+          issue: "CTA Placement & Prominence",
+          context: "Primary calls-to-action don't stand out sufficiently on key pages. 'Enquire', 'Reserve', and 'Book Service' buttons need stronger visual hierarchy and strategic placement at natural decision points in the user journey.",
+          screenshots: ["/images/website_ux/UsedListing_CTA.png"]
         },
         {
-          issue: "Hero Section Impact",
-          context: "The hero area should immediately communicate Grange's unique positioning in luxury automotive retail. Currently lacks the emotional punch needed to differentiate from competitors. Consider full-bleed cinematic photography or video showcasing the dealership experience.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
+          issue: "Form Friction",
+          context: "Lead capture forms ask for too much information upfront, creating abandonment. Reduce initial fields to essentials (name, phone/email, interest), then progressively capture additional details. Multi-step forms with progress indicators perform better for complex enquiries.",
+          screenshots: ["/images/website_ux/FinanceCalculator.png"]
         },
         {
-          issue: "Value Propositions",
-          context: "What makes Grange different? The homepage doesn't clearly articulate unique selling points - nationwide coverage, premium brands portfolio, white-glove service, expert knowledge. These differentiators should be visible above the fold.",
-          screenshot: "https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp"
+          issue: "Trust Signals Missing",
+          context: "Limited use of customer testimonials, reviews, ratings, industry awards, and certifications. Premium buyers need reassurance - showcase Google Reviews scores, customer success stories, manufacturer partnerships, and quality guarantees prominently.",
+          screenshots: ["/images/website_ux/trust_signal.png"]
         }
+       
       ]
     }
+    
   ];
 
   const toggleSection = (id: string) => {
     setExpandedSection(expandedSection === id ? null : id);
+    setCurrentDetailIndex(0);
   };
 
+  // Handle keyboard navigation - open first section on arrow right
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // If no section is expanded, open the first section
+      if (!expandedSection) {
+        if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+          e.preventDefault();
+          e.stopPropagation();
+          setExpandedSection(sections[0].id);
+          setCurrentDetailIndex(0);
+        }
+        return;
+      }
+
+      const currentSection = sections.find(s => s.id === expandedSection);
+      if (!currentSection) return;
+
+      const totalDetails = currentSection.details.length;
+      const currentSectionIndex = sections.findIndex(s => s.id === expandedSection);
+
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+        // If not at the last detail, go to next detail
+        if (currentDetailIndex < totalDetails - 1) {
+          e.preventDefault();
+          e.stopPropagation();
+          setCurrentDetailIndex(prev => prev + 1);
+        }
+        // If at last detail and not at last section, go to next section
+        else if (currentSectionIndex < sections.length - 1) {
+          e.preventDefault();
+          e.stopPropagation();
+          setExpandedSection(sections[currentSectionIndex + 1].id);
+          setCurrentDetailIndex(0);
+        }
+        // If at last detail of last section, allow default behavior (go to next slide)
+        // Don't preventDefault or stopPropagation - let it bubble up to App
+      }
+      
+      if (e.key === "ArrowLeft" || e.key === "PageUp") {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // If not at the first detail, go to previous detail
+        if (currentDetailIndex > 0) {
+          setCurrentDetailIndex(prev => prev - 1);
+        }
+        // If at first detail and not at first section, go to last detail of previous section
+        else if (currentSectionIndex > 0) {
+          const prevSection = sections[currentSectionIndex - 1];
+          setExpandedSection(prevSection.id);
+          setCurrentDetailIndex(prevSection.details.length - 1);
+        }
+        // If at first detail of first section, close the expanded view
+        else {
+          setExpandedSection(null);
+          setCurrentDetailIndex(0);
+        }
+      }
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        e.stopPropagation();
+        setExpandedSection(null);
+        setCurrentDetailIndex(0);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
+  }, [expandedSection, currentDetailIndex, sections]);
+
   return (
-    <>
+    <div className="h-full flex flex-col">
       {!expandedSection ? (
-        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {sections.map((section) => (
             <button
               key={section.id}
@@ -173,54 +239,148 @@ const GrangeWebsiteUXSlideContent: React.FC = () => {
           ))}
         </div>
       ) : (
-        <div className="space-y-4 overflow-y-auto max-h-[600px] pr-2">
-          <button
-            onClick={() => setExpandedSection(null)}
-            className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-2"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to overview
-          </button>
+        <div className="h-full flex flex-col">
+          <div className="flex items-center justify-between mb-4">
+            <button
+              onClick={() => {
+                setExpandedSection(null);
+                setCurrentDetailIndex(0);
+              }}
+              className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to overview
+            </button>
+            
+            {sections
+              .filter((s) => s.id === expandedSection)
+              .map((section) => (
+                <div key="pagination" className="text-xs text-white/60">
+                  {currentDetailIndex + 1} / {section.details.length}
+                </div>
+              ))}
+          </div>
           
           {sections
             .filter((s) => s.id === expandedSection)
-            .map((section) => (
-              <div key={section.id}>
-                <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">
-                  {section.title}
-                </h3>
-                
-                <div className="space-y-6">
-                  {section.details.map((detail, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-black/20 backdrop-blur-sm p-4 md:p-5 rounded-lg border border-white/10"
-                    >
-                      <h4 className="text-base md:text-lg font-semibold mb-2 text-white">
-                        {detail.issue}
-                      </h4>
-                      <p className="text-xs md:text-sm text-white/80 leading-relaxed mb-3">
-                        {detail.context}
-                      </p>
-                      {detail.screenshot && (
-                        <div className="rounded overflow-hidden border border-white/20 bg-black/40">
-                          <img
-                            src={detail.screenshot}
-                            alt={detail.issue}
-                            className="w-full h-32 object-cover opacity-60"
-                          />
-                        </div>
-                      )}
+            .map((section) => {
+              const detail = section.details[currentDetailIndex];
+              if (!detail) return null;
+              
+              return (
+                <div key={section.id} className="flex flex-col">
+                  <h3 className="text-2xl md:text-3xl font-bold uppercase mb-4">
+                    {section.title}
+                  </h3>
+                  
+                  <div 
+                    className="overflow-y-auto pr-2 max-h-[calc(100vh-300px)]"
+                    style={{
+                      scrollbarWidth: 'thin',
+                      scrollbarColor: 'rgba(255,255,255,0.3) transparent'
+                    }}
+                  >
+                    <div className="w-full max-w-7xl mx-auto">
+                      <div className="bg-black/20 backdrop-blur-sm p-6 md:p-8 rounded-lg border border-white/10">
+                        <h4 className="text-xl md:text-2xl font-semibold mb-4 text-white">
+                          {detail.issue}
+                        </h4>
+                        <p className="text-sm md:text-base text-white/80 leading-relaxed mb-4">
+                          {detail.context}
+                        </p>
+                        
+                        {detail.videos && detail.videos.length > 0 && (
+                          <div className="grid grid-cols-3 gap-3 mb-4">
+                            {detail.videos.map((video, idx) => (
+                              <div key={idx} className="rounded overflow-hidden border border-white/20 bg-black/40">
+                                <video
+                                  src={video}
+                                  className="w-full h-48 object-cover"
+                                  controls
+                                  muted
+                                  playsInline
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {detail.screenshots && detail.screenshots.length > 0 && (
+                          <div className={`grid gap-3 ${
+                            detail.screenshotLayout === "grid-2" 
+                              ? 'grid-cols-2' 
+                              : 'grid-cols-1'
+                          }`}>
+                            {detail.screenshots.map((screenshot, idx) => (
+                              <div key={idx} className="rounded overflow-hidden border border-white/20 bg-black/40">
+                                <img
+                                  src={screenshot}
+                                  alt={`${detail.issue} - ${idx + 1}`}
+                                  className="w-full h-auto object-contain"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="flex items-center justify-between mt-4 gap-4">
+                    <button
+                      onClick={() => {
+                        const currentSectionIndex = sections.findIndex(s => s.id === expandedSection);
+                        if (currentDetailIndex > 0) {
+                          setCurrentDetailIndex(prev => prev - 1);
+                        } else if (currentSectionIndex > 0) {
+                          const prevSection = sections[currentSectionIndex - 1];
+                          setExpandedSection(prevSection.id);
+                          setCurrentDetailIndex(prevSection.details.length - 1);
+                        } else {
+                          setExpandedSection(null);
+                          setCurrentDetailIndex(0);
+                        }
+                      }}
+                      disabled={false}
+                      className="flex items-center gap-2 px-4 py-2 rounded bg-white/10 hover:bg-white/20 transition-all text-sm"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      Previous
+                    </button>
+                    
+                    <div className="text-xs text-white/50">
+                      Use ← → arrows to navigate • Scroll for more images
+                    </div>
+                    
+                    <button
+                      onClick={() => {
+                        const currentSectionIndex = sections.findIndex(s => s.id === expandedSection);
+                        if (currentDetailIndex < section.details.length - 1) {
+                          setCurrentDetailIndex(prev => prev + 1);
+                        } else if (currentSectionIndex < sections.length - 1) {
+                          setExpandedSection(sections[currentSectionIndex + 1].id);
+                          setCurrentDetailIndex(0);
+                        }
+                      }}
+                      disabled={currentDetailIndex === section.details.length - 1 && sections.findIndex(s => s.id === expandedSection) === sections.length - 1}
+                      className="flex items-center gap-2 px-4 py-2 rounded bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
+                    >
+                      Next
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

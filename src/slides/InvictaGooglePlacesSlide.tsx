@@ -82,6 +82,9 @@ const InvictaGooglePlacesSlide: React.FC = () => {
         <p className="text-xs md:text-sm text-white/90">
           <span className="font-semibold text-white">Impact:</span> Optimized Google Business Profiles can increase local search visibility by 50%+ and drive significant showroom traffic
         </p>
+        <p className="text-xs text-white/50 italic mt-2">
+          * Data shown is indicative and may include unverified, estimated, or time-dependent information
+        </p>
       </div>
     </>
   );

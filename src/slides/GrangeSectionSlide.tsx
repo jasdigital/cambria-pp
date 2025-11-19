@@ -2,15 +2,16 @@ import React from "react";
 
 const GrangeSectionSlideContent: React.FC = () => {
   const brandLogos = [
-    { src: "https://www.grange.co.uk/assets/svg/logos/alpine-logo.svg", alt: "Alpine" },
-    { src: "https://www.grange.co.uk/assets/svg/logos/aston-martin-logo.svg", alt: "Aston Martin" },
-    { src: "https://www.grange.co.uk/assets/svg/logos/bentley-logo.svg", alt: "Bentley" },
-    { src: "https://cdn.grange.co.uk/assets/lamborghini-logo-156x160.png", alt: "Lamborghini" },
-    { src: "https://www.grange.co.uk/assets/svg/logos/land-rover-logo.svg", alt: "Land Rover" },
-    { src: "https://www.grange.co.uk/assets/svg/logos/mclaren-logo.svg", alt: "McLaren" },
-    { src: "https://www.grange.co.uk/assets/svg/logos/ineos-logo.svg", alt: "INEOS" },
-    { src: "https://www.grange.co.uk/assets/svg/logos/rolls-royce-logo.svg", alt: "Rolls-Royce" },
-    { src: "https://www.grange.co.uk/assets/svg/logos/triumph-logo.svg", alt: "Triumph" },
+    { src: "/images/logos/alpine-logo.svg", alt: "Alpine" },
+    { src: "/images/logos/aston-martin-logo.svg", alt: "Aston Martin" },
+    { src: "/images/logos/bentley-logo.svg", alt: "Bentley" },
+    { src: "/images/logos/corvette-logo.svg", alt: "Corvette" },
+    { src: "/images/logos/lamborghini-logo.png", alt: "Lamborghini" },
+    { src: "/images/logos/land-rover-logo.svg", alt: "Land Rover" },
+    { src: "/images/logos/mclaren-logo.svg", alt: "McLaren" },
+    { src: "/images/logos/ineos-logo.svg", alt: "INEOS" },
+    { src: "/images/logos/rolls-royce-logo.svg", alt: "Rolls-Royce" },
+    { src: "/images/logos/triumph-logo.svg", alt: "Triumph" },
   ];
 
   return (

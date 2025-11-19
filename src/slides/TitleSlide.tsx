@@ -5,7 +5,7 @@ const TitleSlideContent: React.FC = () => (
     {/* Left: Cambria Logo */}
     <div className="flex items-center justify-center">
       <img 
-        src="https://motorparksimages.blob.core.windows.net/cgassets/cambriaautomobiles_500.png" 
+        src="/images/logos/cambria.png" 
         alt="Cambria Automobiles"
         className="w-full max-w-md h-auto object-contain"
       />
@@ -14,12 +14,12 @@ const TitleSlideContent: React.FC = () => (
     {/* Right: Title Block */}
     <div className="space-y-4 md:space-y-6">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight uppercase leading-tight" style={{ fontFamily: 'Roboto, sans-serif' }}>
-        <span className="font-bold">Marketing</span> Review
+        <span className="font-bold">Marketing</span>
         
       </h1>
       
       <p className="text-xl md:text-2xl text-white/90 font-light" style={{ fontFamily: 'Roboto, sans-serif' }}>
-        <span className="font-bold">Cambria Automobiles</span> · <span className="font-bold">Grange Automotive</span> · <span className="font-bold">Invicta</span>
+        <span className="font-bold">Grange Motors</span> · <span className="font-bold">Invicta Motors</span>
       </p>
     </div>
   </div>

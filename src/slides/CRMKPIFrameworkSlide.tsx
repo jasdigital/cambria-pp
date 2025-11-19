@@ -4,6 +4,7 @@ const CRMKPIFrameworkSlide: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = React.useState("all");
   const [selectedBrand, setSelectedBrand] = React.useState("all");
   const [selectedModel, setSelectedModel] = React.useState("all");
+  const [selectedAgent, setSelectedAgent] = React.useState("all");
 
   // Generate dynamic KPI data based on filters
   const getKPIData = () => {
@@ -33,7 +34,16 @@ const CRMKPIFrameworkSlide: React.FC = () => {
       "720s": 1.12,
     };
 
-    const mult = locationMultipliers[selectedLocation] * brandMultipliers[selectedBrand] * modelMultipliers[selectedModel];
+    const agentMultipliers: Record<string, number> = {
+      all: 1.0,
+      "john-smith": 1.18,
+      "sarah-jones": 1.12,
+      "mike-brown": 0.95,
+      "emma-wilson": 1.08,
+      "david-taylor": 0.92,
+    };
+
+    const mult = locationMultipliers[selectedLocation] * brandMultipliers[selectedBrand] * modelMultipliers[selectedModel] * agentMultipliers[selectedAgent];
 
     // Base values
     const baseLeadResponseTime = 5;
@@ -77,7 +87,11 @@ const CRMKPIFrameworkSlide: React.FC = () => {
   const kpiCategories = [
     {
       title: "Sales KPIs",
-      icon: "💼",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-6 h-6 md:w-8 md:h-8">
+          <path fill="currentColor" d="M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"/>
+        </svg>
+      ),
       color: "from-blue-500/20 to-blue-600/30",
       metrics: [
         { name: "Lead Response Time", target: "< 3 min", current: `${kpiData.leadResponseTime} min` },
@@ -85,12 +99,16 @@ const CRMKPIFrameworkSlide: React.FC = () => {
         { name: "Appointment Rate", target: "40%", current: `${kpiData.appointmentRate}%` },
         { name: "Show Rate", target: "70%", current: `${kpiData.showRate}%` },
         { name: "Sales Conversion", target: "18%", current: `${kpiData.salesConversion}%` },
-        { name: "Cost per Sale", target: "£450", current: `£${kpiData.costPerSale}` },
+        { name: "Cost per Sale", target: "£250", current: `£${kpiData.costPerSale}` },
       ]
     },
     {
       title: "Aftersales KPIs",
-      icon: "🔧",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-6 h-6 md:w-8 md:h-8">
+          <path fill="currentColor" d="M507.73 109.1c-2.24-9.03-13.54-12.09-20.12-5.51l-74.36 74.36-67.88-11.31-11.31-67.88 74.36-74.36c6.62-6.62 3.43-17.9-5.66-20.16-47.38-11.74-99.55.91-136.58 37.93-39.64 39.64-50.55 97.1-34.05 147.2L18.74 402.76c-24.99 24.99-24.99 65.51 0 90.5 24.99 24.99 65.51 24.99 90.5 0l213.21-213.21c50.12 16.71 107.47 5.68 147.37-34.22 37.07-37.07 49.7-89.32 37.91-136.73zM64 472c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"/>
+        </svg>
+      ),
       color: "from-green-500/20 to-green-600/30",
       metrics: [
         { name: "Service Retention", target: "75%", current: `${kpiData.serviceRetention}%` },
@@ -102,7 +120,11 @@ const CRMKPIFrameworkSlide: React.FC = () => {
     },
     {
       title: "Marketing KPIs",
-      icon: "📊",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-6 h-6 md:w-8 md:h-8">
+          <path fill="currentColor" d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"/>
+        </svg>
+      ),
       color: "from-purple-500/20 to-purple-600/30",
       metrics: [
         { name: "Channel Performance", target: "Multi", current: "Tracked" },
@@ -121,12 +143,31 @@ const CRMKPIFrameworkSlide: React.FC = () => {
 
   return (
     <>
-      <h2 className="text-2xl md:text-4xl font-bold uppercase mb-2">
-        KPI Framework*
-      </h2>
-      <p className="text-sm md:text-base text-white/80 mb-4">
-        Real-time reporting with single source of truth
-      </p>
+      <div className="flex items-start justify-between mb-4">
+        <div>
+          <h2 className="text-2xl md:text-4xl font-bold uppercase mb-2">
+            KPI Framework
+          </h2>
+          <p className="text-sm md:text-base text-white/80">
+            Real-time reporting with single source of truth
+          </p>
+        </div>
+        
+        <div className="flex items-center gap-4 px-4 py-3 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg">
+          <div className="text-xs md:text-sm">
+            <span className="text-white/60">Total Leads: </span>
+            <span className="font-bold text-white">{kpiData.totalLeads.toLocaleString()}*</span>
+          </div>
+          <div className="text-xs md:text-sm">
+            <span className="text-white/60">Conversions: </span>
+            <span className="font-bold text-white">{kpiData.conversions.toLocaleString()}*</span>
+          </div>
+          <div className="text-xs md:text-sm">
+            <span className="text-white/60">Revenue: </span>
+            <span className="font-bold text-white">£{kpiData.revenue}M*</span>
+          </div>
+        </div>
+      </div>
 
       {/* Filter Dropdowns */}
       <div className="flex flex-wrap gap-2 mb-4">
@@ -167,20 +208,18 @@ const CRMKPIFrameworkSlide: React.FC = () => {
           <option value="720s">720S</option>
         </select>
 
-        <div className="ml-auto flex items-center gap-4 px-3 py-1.5 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg">
-          <div className="text-xs md:text-sm">
-            <span className="text-white/60">Total Leads: </span>
-            <span className="font-bold text-white">{kpiData.totalLeads.toLocaleString()}*</span>
-          </div>
-          <div className="text-xs md:text-sm">
-            <span className="text-white/60">Conversions: </span>
-            <span className="font-bold text-white">{kpiData.conversions.toLocaleString()}*</span>
-          </div>
-          <div className="text-xs md:text-sm">
-            <span className="text-white/60">Revenue: </span>
-            <span className="font-bold text-white">£{kpiData.revenue}M*</span>
-          </div>
-        </div>
+        <select
+          value={selectedAgent}
+          onChange={(e) => setSelectedAgent(e.target.value)}
+          className="px-3 py-1.5 rounded-lg text-xs md:text-sm bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-colors cursor-pointer"
+        >
+          <option value="all">All Agents</option>
+          <option value="john-smith">John Smith</option>
+          <option value="sarah-jones">Sarah Jones</option>
+          <option value="mike-brown">Mike Brown</option>
+          <option value="emma-wilson">Emma Wilson</option>
+          <option value="david-taylor">David Taylor</option>
+        </select>
       </div>
       
       <div className="grid md:grid-cols-3 gap-3">
@@ -190,7 +229,7 @@ const CRMKPIFrameworkSlide: React.FC = () => {
             className={`bg-gradient-to-br ${category.color} backdrop-blur-sm border border-white/20 rounded-lg p-3 md:p-4`}
           >
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-2xl">{category.icon}</span>
+              <span className="text-white/80">{category.icon}</span>
               <h3 className="text-sm md:text-base font-bold">{category.title}</h3>
             </div>
             
