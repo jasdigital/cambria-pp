@@ -90,7 +90,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
               {/* Before (Right side) - Interior */}
               <div className="absolute inset-0">
                 <img 
-                  src="https://eu.cdn.autosonshow.tv/2645/dslr/DH74REV/e13.jpg?c1415c1a65ead7d2ce7cf343f547a2d4"
+                  src="/images/e06.jpg"
                   alt="Before - Interior photography"
                   className="w-full h-full object-cover"
                 />
@@ -110,7 +110,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <img 
-                  src="/lamborghini_2.jpg"
+                  src="/images/lamborghini_inside_2.jpg"
                   alt="After - Interior photography"
                   className="w-full h-full object-cover"
                 />
@@ -129,7 +129,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
               {/* Before (Right side) - External */}
               <div className="absolute inset-0">
                 <img 
-                  src="https://eu.cdn.autosonshow.tv/2645/dslr/DH74REV/e04.jpg?c1415c1a65ead7d2ce7cf343f547a2d4"
+                  src="/images/e04.jpg"
                   alt="Before - External photography"
                   className="w-full h-full object-cover"
                 />
@@ -149,7 +149,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <img 
-                  src="/lamborghini_1.jpg"
+                  src="/images/lamborghini_rear_2.jpg"
                   alt="After - External photography"
                   className="w-full h-full object-cover"
                 />

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { getVideoUrl } from "../utils/videoUrl";
 
 interface SocialVideoMontageSlideProps {
   onReplayVideos?: () => void;
@@ -60,17 +61,17 @@ const SocialVideoMontageSlide: React.FC<SocialVideoMontageSlideProps> = ({ onRep
   };
 
   const videos = [
-    { src: "/video/DK Aston Martin Valkyrie ASMR.mp4", span: "row-span-2" },
-    { src: "/video/HM - Jaguar E-type Red - Reel.mp4", span: "" },
-    { src: "/video/DK - Aston Martin DBS - Reel.mp4", span: "" },
-    { src: "/video/HM - Aston Martin Vantage Spitfire - 24102024 - Main Reel.mp4", span: "col-span-2" },
-    { src: "/video/HM - Anglesey Sprint - 04-05052024 - Reel.mp4", span: "" },
+    { src: getVideoUrl("/video/DK Aston Martin Valkyrie ASMR.mp4"), span: "row-span-2" },
+    { src: getVideoUrl("/video/HM - Jaguar E-type Red - Reel.mp4"), span: "" },
+    { src: getVideoUrl("/video/DK - Aston Martin DBS - Reel.mp4"), span: "" },
+    { src: getVideoUrl("/video/HM - Aston Martin Vantage Spitfire - 24102024 - Main Reel.mp4"), span: "col-span-2 row-span-2" },
+    { src: getVideoUrl("/video/HM - Anglesey Sprint - 04-05052024 - Reel.mp4"), span: "" },
   ];
 
   return (
     <>
       <h2 className="text-2xl md:text-4xl font-bold uppercase mb-2">
-        Social Content Showcase
+        Hero Content
       </h2>
       <p className="text-sm md:text-base text-white/80 mb-4">
         Premium video content for social media engagement

@@ -2,10 +2,12 @@ import React from "react";
 
 const InvictaSectionSlideContent: React.FC = () => (
   <div className="h-full flex flex-col justify-center items-center gap-6 md:gap-8">
-    <h1 className="text-4xl md:text-5xl font-bold tracking-tight uppercase text-center">
-      Invicta
-    </h1>
-    <div className="w-24 h-1 bg-white"></div>
+    <img 
+      src="/images/logos/invicta.svg" 
+      alt="Invicta Motors"
+      className="h-20 md:h-28 w-auto object-contain"
+    />
+    <div className="w-24 h-1 bg-gray-800"></div>
   </div>
 );
 

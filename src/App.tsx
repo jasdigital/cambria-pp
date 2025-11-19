@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { getVideoUrl } from "./utils/videoUrl";
 import TitleSlideContent from "./slides/TitleSlide";
 import OverviewSlideContent from "./slides/OverviewSlide";
 import GrangeSectionSlideContent from "./slides/GrangeSectionSlide";
 import GrangeWebsiteUXSlideContent from "./slides/GrangeWebsiteUXSlide";
 import GrangeUsedCarsSlideContent from "./slides/GrangeUsedCarsSlide";
-import GrangeBeforeAfterSlideContent from "./slides/GrangeBeforeAfterSlide";
+import EcommerceModulesSlideContent from "./slides/EcommerceModulesSlide";
 import GrangeBeforeAfterWipeSlideContent from "./slides/GrangeBeforeAfterWipeSlide";
 import GrangeLocationSearchSlideContent from "./slides/GrangeLocationSearchSlide";
 import DataCRMSectionSlideContent from "./slides/DataCRMSectionSlide";
@@ -13,7 +14,6 @@ import SEOComparisonSlideContent from "./slides/SEOComparisonSlide";
 import CustomerJourneyFlowSlideContent from "./slides/CustomerJourneyFlowSlide";
 import CRMFoundationsSlideContent from "./slides/CRMFoundationsSlide";
 import SingleCustomerViewSlideContent from "./slides/SingleCustomerViewSlide";
-import DataFlowSystemsSlideContent from "./slides/DataFlowSystemsSlide";
 import LifecycleAutomationSlideContent from "./slides/LifecycleAutomationSlide";
 import CRMKPIFrameworkSlideContent from "./slides/CRMKPIFrameworkSlide";
 import PersonalisationSlideContent from "./slides/PersonalisationSlide";
@@ -21,18 +21,12 @@ import SocialSectionSlideContent from "./slides/SocialSectionSlide";
 import SocialManagementToolsSlideContent from "./slides/SocialManagementToolsSlide";
 import SocialVideoMontageSlideContent from "./slides/SocialVideoMontageSlide";
 import YouTubeShortsSlideContent from "./slides/YouTubeShortsSlide";
+import EventCalendarSlideContent from "./slides/EventCalendarSlide";
+import LinkedInStrategySlideContent from "./slides/LinkedInStrategySlide";
 import InvictaSectionSlideContent from "./slides/InvictaSectionSlide";
-import InvictaSlideContent from "./slides/InvictaSlide";
 import InvictaLocalSEOSlideContent from "./slides/InvictaLocalSEOSlide";
-import InvictaTopSearchTermsSlideContent from "./slides/InvictaTopSearchTermsSlide";
-import InvictaGooglePlacesSlideContent from "./slides/InvictaGooglePlacesSlide";
-import ShowroomBrandSlideContent from "./slides/ShowroomBrandSlide";
-import VideoContentSlideContent from "./slides/VideoContentSlide";
-import TimeToMarketSlideContent from "./slides/TimeToMarketSlide";
-import RetentionAmberSlideContent from "./slides/RetentionAmberSlide";
-import CitNowSlideContent from "./slides/CitNowSlide";
+import GrassrootsMarketingSlideContent from "./slides/GrassrootsMarketingSlide";
 import LeadershipManagementSlideContent from "./slides/LeadershipManagementSlide";
-import NextStepsSlideContent from "./slides/NextStepsSlide";
 
 type SlideType = "title" | "content" | "media";
 
@@ -99,10 +93,10 @@ const slides: Slide[] = [
     brand: "grange",
   },
   {
-    id: "grange-before-after",
+    id: "ecommerce-modules",
     type: "content",
-    title: "Grange — Homepage Transformation",
-    notes: "Interactive before/after comparison of homepage design.",
+    title: "eCommerce Modules",
+    notes: "Modular eCommerce platform components for used car journey.",
     brand: "grange",
   },
   {
@@ -134,13 +128,6 @@ const slides: Slide[] = [
     brand: "cambria",
   },
   {
-    id: "customer-journey-flow",
-    type: "content",
-    title: "Customer Communication Flow",
-    notes: "Interactive flow diagram showing customer journey and decision points.",
-    brand: "cambria",
-  },
-  {
     id: "crm-foundations",
     type: "content",
     title: "CRM & Data Strategy Foundations",
@@ -155,10 +142,10 @@ const slides: Slide[] = [
     brand: "cambria",
   },
   {
-    id: "data-flow-systems",
+    id: "customer-journey-flow",
     type: "content",
-    title: "Real-Time Data Flow",
-    notes: "Breaking down the fragmented automotive stack.",
+    title: "Customer Communication Flow",
+    notes: "Interactive flow diagram showing customer journey and decision points.",
     brand: "cambria",
   },
   {
@@ -190,16 +177,9 @@ const slides: Slide[] = [
     brand: "cambria",
   },
   {
-    id: "social-management-tools",
-    type: "content",
-    title: "Social Media Management Tools",
-    notes: "Overview of automation platforms like Hootsuite, Buffer, Sprout Social, and Later for multi-location social management.",
-    brand: "cambria",
-  },
-  {
     id: "social-video-montage",
     type: "content",
-    title: "Social Content Showcase",
+    title: "Hero Content",
     notes: "Video montage showcasing premium content for social media platforms.",
     brand: "cambria",
   },
@@ -211,6 +191,27 @@ const slides: Slide[] = [
     brand: "cambria",
   },
   {
+    id: "social-management-tools",
+    type: "content",
+    title: "Multi-Site Social Media Setup",
+    notes: "Critical concerns for managing 26+ locations across multiple brands with governance, control, and solutions.",
+    brand: "cambria",
+  },
+  {
+    id: "event-calendar",
+    type: "content",
+    title: "Event & Social Media Calendar",
+    notes: "Integrated planning calendar for events, campaigns, and social content.",
+    brand: "cambria",
+  },
+  {
+    id: "linkedin-strategy",
+    type: "content",
+    title: "LinkedIn Strategy",
+    notes: "Personal branding and team collaboration strategy for LinkedIn to tell the brand story.",
+    brand: "cambria",
+  },
+  {
     id: "invicta-section",
     type: "title",
     title: "Invicta",
@@ -218,109 +219,18 @@ const slides: Slide[] = [
     brand: "invicta",
   },
   {
-    id: "invicta",
-    type: "content",
-    title: "Invicta — Digital Review",
-    bullets: [
-      "Improve product placement visual hierarchy",
-      "Leverage local events & partnerships for content",
-      "Enhance social photography quality and consistency",
-      "Fix reservation & finance redirect issues",
-    ],
-    notes:
-      "Highlight Invicta as a big opportunity: volume plus local presence, but journeys need tightening.",
-    brand: "invicta",
-  },
-  {
     id: "invicta-local-seo",
     type: "content",
-    title: "Invicta — Local SEO Audit",
-    notes: "Geographic distribution and search volume analysis across Invicta, Motorparks, and County locations.",
+    title: "Invicta — Market Opportunity Analysis",
+    notes: "Urban Science indicative data showing market size, pump-in/pump-out dynamics, market share performance, and conquest rates across dealership network.",
     brand: "invicta",
   },
   {
-    id: "invicta-top-search-terms",
+    id: "grassroots-marketing",
     type: "content",
-    title: "Invicta — Top Search Terms",
-    notes: "Analysis of top-performing search terms by volume, competition, and bid range.",
+    title: "Invicta — Grassroots Marketing",
+    notes: "Hyper-local strategies for emerging brands (Chery, Omoda, Jaecoo) in Manchester with event activations, partnerships, and community engagement opportunities.",
     brand: "invicta",
-  },
-  {
-    id: "invicta-google-places",
-    type: "content",
-    title: "Invicta — Google Business Profile Review",
-    notes: "Key actions to maximize local search visibility across all Invicta locations.",
-    brand: "invicta",
-  },
-  {
-    id: "media-showroom",
-    type: "media",
-    title: "Showroom & Brand Experience",
-    subtitle: "Use physical experience as a key digital asset",
-    bullets: [
-      "Hero imagery should showcase the showroom experience",
-      "Blend lifestyle-led photography with vehicle packshots",
-      "Align onsite visuals with OEM and group-level brand",
-    ],
-    mediaUrl: "/images/grange-showroom-placeholder.jpg",
-    mediaAlt: "Grange showroom imagery",
-    notes:
-      "Invite them to imagine a gallery of real locations: this makes the online journey feel closer to the showroom experience.",
-  },
-  {
-    id: "media-video",
-    type: "media",
-    title: "Interactive & Video Content",
-    subtitle: "Using rich media to tell the story",
-    bullets: [
-      "Service walkarounds, sales intros, and CitNow-style content",
-      "Create reusable libraries for campaigns and landing pages",
-      "Integrate video into key decision points in the journey",
-    ],
-    videoUrl: "/media/example-showroom-video.mp4",
-    mediaAlt: "Showroom video",
-    notes:
-      "This is a placeholder for real content; talk about CitNow, OEM media and what could be done with richer video.",
-  },
-  {
-    id: "time-to-market",
-    type: "content",
-    title: "Time to Market",
-    bullets: [
-      "Accelerate photo → live workflow for used cars",
-      "AI-driven data enrichment for speed & accuracy",
-      "Better operational visibility across dealerships",
-      "Automated tagging for categories & features",
-    ],
-    notes:
-      "Show how operational improvements translate directly into faster sales and better use of PPC and social.",
-  },
-  {
-    id: "retention-amber",
-    type: "content",
-    title: "Retention & Amber Work",
-    bullets: [
-      "Automated MOT & WIP reminders",
-      "Personalised, multi-channel messaging",
-      "WhatsApp and SMS layered with email",
-      "Better post-service follow-up journeys",
-    ],
-    notes:
-      "Tie this back to lifetime value and aftersales profitability. This is where CRM and digital can work together.",
-  },
-  {
-    id: "citnow",
-    type: "content",
-    title: "CitNow & Media Standards",
-    bullets: [
-      "Apply consistent media guidelines across brands",
-      "Improve minimum quality thresholds for photos & video",
-      "Integrate CitNow content into CRM and UVD pages",
-      "Use rich media in outbound comms and remarketing",
-    ],
-    notes:
-      "Position CitNow not just as a workshop tool, but a content engine for marketing and customer reassurance.",
-    brand: "cambria",
   },
   {
     id: "leadership-management",
@@ -328,20 +238,6 @@ const slides: Slide[] = [
     title: "Leadership & Management",
     notes:
       "Strategic leadership approach combining agile marketing, project management excellence, and change management expertise from Mercedes-Benz Leadership Accelerator programme.",
-    brand: "cambria",
-  },
-  {
-    id: "next-steps",
-    type: "content",
-    title: "Next Steps",
-    bullets: [
-      "0–30 days: Quick Wins in UX, copy & journeys",
-      "30–90 days: Platform and performance improvements",
-      "Q2–Q3: AI & data enrichment across stock & journeys",
-      "Longer term: Full digital transformation roadmap",
-    ],
-    notes:
-      "End with a clear phased view so they can see where to start and how it scales.",
     brand: "cambria",
   },
 ];
@@ -453,9 +349,34 @@ const App: React.FC = () => {
   const [videoEnded, setVideoEnded] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  const [uxVideoEnded, setUxVideoEnded] = useState(false);
+  const [uxExpandedSection, setUxExpandedSection] = useState<string | null>(null);
+  const [uxDetailIndex, setUxDetailIndex] = useState<number>(0);
+  const uxVideoRef = useRef<HTMLVideoElement>(null);
+
+  // Poll for UX section and detail index changes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentSection = (window as any).uxExpandedSection;
+      const currentDetailIndex = (window as any).uxDetailIndex || 0;
+      
+      if (currentSection !== uxExpandedSection) {
+        setUxExpandedSection(currentSection);
+        if (currentSection !== "experience") {
+          setUxVideoEnded(false);
+        }
+      }
+      
+      if (currentDetailIndex !== uxDetailIndex) {
+        setUxDetailIndex(currentDetailIndex);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, [uxExpandedSection, uxDetailIndex]);
 
   const handleVideoTimeUpdate = () => {
-    if (videoRef.current && videoRef.current.currentTime >= 15) {
+    if (videoRef.current && videoRef.current.currentTime >= 8) {
       videoRef.current.pause();
       setVideoEnded(true);
       setVideoPlaying(false);
@@ -478,9 +399,18 @@ const App: React.FC = () => {
     }
   };
 
+  const handleReplayUxVideo = () => {
+    if (uxVideoRef.current) {
+      uxVideoRef.current.currentTime = 0;
+      uxVideoRef.current.play();
+      setUxVideoEnded(false);
+    }
+  };
+
   useEffect(() => {
     setVideoEnded(false);
     setVideoPlaying(false);
+    setUxVideoEnded(false);
   }, [currentIndex]);
 
   // Keyboard controls
@@ -514,6 +444,13 @@ const App: React.FC = () => {
             (window as any).playMontageVideos();
           }
         }
+        if (slide.id === "youtube-shorts") {
+          if ((window as any).replayShortsVideos) {
+            (window as any).replayShortsVideos();
+          } else if ((window as any).playShortsVideos) {
+            (window as any).playShortsVideos();
+          }
+        }
       }
       if (e.key === "1") setTransitionStyle("slide");
       if (e.key === "2") setTransitionStyle("fade");
@@ -540,13 +477,13 @@ const App: React.FC = () => {
         <div className="flex items-center gap-4">
           {isCambria ? (
             <img 
-              src="https://motorparksimages.blob.core.windows.net/cgassets/cambriaautomobiles_500.png" 
+              src="/images/logos/cambria.png" 
               alt="Cambria Automobiles"
               className="h-10 md:h-14 w-auto object-contain"
             />
           ) : isInvicta ? (
             <img 
-              src="https://www.invictamotors.co.uk/assets/svg/logos/invicta.svg" 
+              src="/images/logos/invicta.svg" 
               alt="Invicta Motors"
               className="h-8 md:h-10 w-auto object-contain"
             />
@@ -596,9 +533,7 @@ const App: React.FC = () => {
       <div 
         className="relative flex-1 flex overflow-hidden bg-gradient-to-br from-neutral-50 to-neutral-200 bg-cover bg-center"
         style={{ 
-          backgroundImage: slide.id === "grange-section" ? 'none' : (isInvicta 
-            ? 'url(https://cdn.invictamotors.co.uk/assets/invicta/invicta/homepage-tablet.webp)' 
-            : 'url(https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp)')
+          backgroundImage: (isGrange || isInvicta || isCambria) ? 'none' : 'url(/images/amg/AMGEvent-15.jpg)'
         }}
       >
         {/* Video background for Grange section slide */}
@@ -612,15 +547,49 @@ const App: React.FC = () => {
               className="absolute inset-0 w-full h-full object-cover"
               style={{ display: videoEnded ? 'none' : 'block' }}
             >
-              <source src="/video/DK Aston Martin Valkyrie ASMR.mp4#t=0,15" type="video/mp4" />
+              <source src={getVideoUrl("/video/DK - Aston Martin DBS - Reel.mp4#t=0,8")} type="video/mp4" />
             </video>
             {videoEnded && (
               <div 
                 className="absolute inset-0 w-full h-full object-cover bg-cover bg-center"
-                style={{ backgroundImage: 'url(https://cdn.grange.co.uk/assets/homepage/grange-homepage-tablet.webp)' }}
+                style={{ backgroundImage: 'url(/images/grange-homepage-tablet.webp)' }}
               />
             )}
           </>
+        )}
+        
+        {/* Video background for UX slide - Experience section, first detail only */}
+        {slide.id === "grange-website-ux" && uxExpandedSection === "experience" && uxDetailIndex === 0 && (
+          <>
+            <video
+              ref={uxVideoRef}
+              autoPlay
+              muted
+              playsInline
+              onTimeUpdate={() => {
+                if (uxVideoRef.current) {
+                  const duration = uxVideoRef.current.duration;
+                  const currentTime = uxVideoRef.current.currentTime;
+                  // Loop back to start when we're 7 seconds from the end
+                  if (currentTime >= duration - 7) {
+                    uxVideoRef.current.currentTime = 0;
+                  }
+                }
+              }}
+              onEnded={() => setUxVideoEnded(true)}
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={getVideoUrl("/video/DK Aston Martin Valkyrie ASMR.mp4")} type="video/mp4" />
+            </video>
+          </>
+        )}
+        
+        {/* Default background image for UX slide when not showing video */}
+        {slide.id === "grange-website-ux" && (uxExpandedSection !== "experience" || uxDetailIndex !== 0) && (
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: 'url(/images/grange-homepage-tablet.webp)' }}
+          />
         )}
         
         {/* Gradient overlay for Invicta */}
@@ -642,52 +611,14 @@ const App: React.FC = () => {
           onClick={goNext}
         />
 
-        {/* OEM Partnership Logo - Bottom Right for Grange slides (except grange-section) */}
-        {isGrange && slide.id !== "grange-section" && (() => {
-          const grangeLogos = [
-            { src: "https://www.grange.co.uk/assets/svg/logos/alpine-logo.svg", alt: "Alpine" },
-            { src: "https://www.grange.co.uk/assets/svg/logos/aston-martin-logo.svg", alt: "Aston Martin" },
-            { src: "https://www.grange.co.uk/assets/svg/logos/bentley-logo.svg", alt: "Bentley" },
-            { src: "https://www.grange.co.uk/assets/svg/logos/lamborghini-logo.svg", alt: "Lamborghini" },
-            { src: "https://www.grange.co.uk/assets/svg/logos/land-rover-logo.svg", alt: "Land Rover" },
-            { src: "https://www.grange.co.uk/assets/svg/logos/mclaren-logo.svg", alt: "McLaren" },
-            { src: "https://www.grange.co.uk/assets/svg/logos/ineos-logo.svg", alt: "INEOS" },
-          ];
-          const logo = grangeLogos[currentIndex % grangeLogos.length];
-          return (
-            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 z-20">
-              <img 
-                src={logo.src} 
-                alt={logo.alt}
-                className="h-8 md:h-12 w-auto object-contain opacity-50 hover:opacity-80 transition-opacity"
-              />
-            </div>
-          );
-        })()}
-
-        {/* Topic Headings - Right Side for Grange Section Slide */}
-        {slide.id === "grange-section" && (
-          <div className="absolute right-12 md:right-20 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4 md:gap-6">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-left text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
-              <span className="font-bold">Experience</span>
-            </h3>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-left text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
-              <span className="font-bold">Navigation</span>
-            </h3>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-left text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
-              <span className="font-bold">Conversion</span>
-            </h3>
-          </div>
-        )}
-
         <div
           className={`relative mx-auto my-auto w-full ${
-            presenterMode ? "max-w-7xl" : "max-w-5xl"
+            presenterMode ? "max-w-7xl" : slide.id === "grange-section" ? "max-w-6xl" : slide.id === "grange-website-ux" ? "max-w-7xl" : slide.id === "youtube-shorts" ? "max-w-7xl" : "max-w-6xl"
           } px-4 md:px-8`}
         >
           <div
             className={`grid gap-6 items-stretch ${
-              presenterMode ? "md:grid-cols-[2.1fr,1fr]" : ""
+              presenterMode ? "md:grid-cols-[2.1fr,1fr]" : slide.id === "grange-section" ? "md:grid-cols-[2fr,1fr]" : ""
             }`}
           >
             <AnimatePresence custom={direction} mode="popLayout">
@@ -702,46 +633,54 @@ const App: React.FC = () => {
                   duration: 0.4,
                   ease: "easeOut",
                 }}
-                className="shadow-lg px-6 md:px-10 py-7 md:py-10 text-white relative"
-                style={{ backgroundColor: isGrange ? 'rgba(0,0,0,.4)' : 'rgba(42,42,42,.8)' }}
+                className={`${isInvicta ? '' : 'shadow-lg'} px-6 md:px-10 py-7 md:py-10 ${isInvicta ? 'text-gray-900' : 'text-white'} relative`}
+                style={{ backgroundColor: isGrange ? 'rgba(0,0,0,.4)' : isInvicta ? 'transparent' : 'rgba(42,42,42,.8)' }}
               >
-                <div className="h-full flex flex-col justify-center gap-5 md:gap-6">
+                <div className={`h-full flex flex-col ${slide.id === "grange-website-ux" ? "" : "justify-center"} gap-5 md:gap-6`}>
                   {currentIndex === 0 && <TitleSlideContent />}
                   {currentIndex === 1 && <OverviewSlideContent />}
                   {currentIndex === 2 && <GrangeSectionSlideContent />}
                   {currentIndex === 3 && <GrangeWebsiteUXSlideContent />}
                   {currentIndex === 4 && <GrangeUsedCarsSlideContent />}
-                  {currentIndex === 5 && <GrangeBeforeAfterSlideContent />}
+                  {currentIndex === 5 && <EcommerceModulesSlideContent />}
                   {currentIndex === 6 && <GrangeBeforeAfterWipeSlideContent />}
                   {currentIndex === 7 && <GrangeLocationSearchSlideContent />}
                   {currentIndex === 8 && <SEOComparisonSlideContent />}
                   {currentIndex === 9 && <DataCRMSectionSlideContent />}
-                  {currentIndex === 10 && <CustomerJourneyFlowSlideContent />}
-                  {currentIndex === 11 && <CRMFoundationsSlideContent />}
-                  {currentIndex === 12 && <SingleCustomerViewSlideContent />}
-                  {currentIndex === 13 && <DataFlowSystemsSlideContent />}
-                  {currentIndex === 14 && <LifecycleAutomationSlideContent />}
-                  {currentIndex === 15 && <CRMKPIFrameworkSlideContent />}
-                  {currentIndex === 16 && <PersonalisationSlideContent />}
-                  {currentIndex === 17 && <SocialSectionSlideContent />}
-                  {currentIndex === 18 && <SocialManagementToolsSlideContent />}
-                  {currentIndex === 19 && <SocialVideoMontageSlideContent />}
-                  {currentIndex === 20 && <YouTubeShortsSlideContent />}
-                  {currentIndex === 21 && <InvictaSectionSlideContent />}
-                  {currentIndex === 22 && <InvictaSlideContent />}
+                  {currentIndex === 10 && <CRMFoundationsSlideContent />}
+                  {currentIndex === 11 && <SingleCustomerViewSlideContent />}
+                  {currentIndex === 12 && <CustomerJourneyFlowSlideContent />}
+                  {currentIndex === 13 && <LifecycleAutomationSlideContent />}
+                  {currentIndex === 14 && <CRMKPIFrameworkSlideContent />}
+                  {currentIndex === 15 && <PersonalisationSlideContent />}
+                  {currentIndex === 16 && <SocialSectionSlideContent />}
+                  {currentIndex === 17 && <SocialVideoMontageSlideContent />}
+                  {currentIndex === 18 && <YouTubeShortsSlideContent />}
+                  {currentIndex === 19 && <SocialManagementToolsSlideContent />}
+                  {currentIndex === 20 && <EventCalendarSlideContent />}
+                  {currentIndex === 21 && <LinkedInStrategySlideContent />}
+                  {currentIndex === 22 && <InvictaSectionSlideContent />}
                   {currentIndex === 23 && <InvictaLocalSEOSlideContent />}
-                  {currentIndex === 24 && <InvictaTopSearchTermsSlideContent />}
-                  {currentIndex === 25 && <InvictaGooglePlacesSlideContent />}
-                  {currentIndex === 26 && <ShowroomBrandSlideContent />}
-                  {currentIndex === 27 && <VideoContentSlideContent />}
-                  {currentIndex === 28 && <TimeToMarketSlideContent />}
-                  {currentIndex === 29 && <RetentionAmberSlideContent />}
-                  {currentIndex === 30 && <CitNowSlideContent />}
-                  {currentIndex === 31 && <LeadershipManagementSlideContent />}
-                  {currentIndex === 32 && <NextStepsSlideContent />}
+                  {currentIndex === 24 && <GrassrootsMarketingSlideContent />}
+                  {currentIndex === 25 && <LeadershipManagementSlideContent />}
                 </div>
               </motion.div>
             </AnimatePresence>
+
+            {/* Topic Headings - Right Side for Grange Section Slide */}
+            {slide.id === "grange-section" && !presenterMode && (
+              <div className="hidden md:flex flex-col gap-4 md:gap-6 justify-center px-8 md:px-12">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-left text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                  <span className="font-bold">Experience</span>
+                </h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-left text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                  <span className="font-bold">Navigation</span>
+                </h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-left text-white" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                  <span className="font-bold">Conversion</span>
+                </h3>
+              </div>
+            )}
 
             {presenterMode && (
               <aside className="hidden md:flex flex-col bg-white/90 rounded-3xl border border-neutral-200 shadow px-5 py-5">
@@ -787,6 +726,17 @@ const App: React.FC = () => {
             <span className="font-semibold">1</span>/<span className="font-semibold">2</span>/
             <span className="font-semibold">3</span> = Slide/Fade/Zoom
           </div>
+          {slide.id === "grange-website-ux" && uxVideoEnded && (
+            <button
+              onClick={handleReplayUxVideo}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-black text-white rounded-full text-xs font-medium hover:bg-black/80 transition-colors"
+            >
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1v2.5L11.5 0 8 3.5V6a5 5 0 1 0 5 5h2a7 7 0 0 1-7 7z"/>
+              </svg>
+              Replay Video
+            </button>
+          )}
           {slide.id === "grange-section" && (
             <button
               onClick={videoPlaying || videoEnded ? handleReplayVideo : handlePlayVideo}
@@ -809,6 +759,23 @@ const App: React.FC = () => {
                   (window as any).replayMontageVideos();
                 } else if ((window as any).playMontageVideos) {
                   (window as any).playMontageVideos();
+                }
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-black text-white rounded-full text-xs font-medium hover:bg-black/80 transition-colors"
+            >
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+              </svg>
+              Play Videos
+            </button>
+          )}
+          {slide.id === "youtube-shorts" && (
+            <button
+              onClick={() => {
+                if ((window as any).replayShortsVideos) {
+                  (window as any).replayShortsVideos();
+                } else if ((window as any).playShortsVideos) {
+                  (window as any).playShortsVideos();
                 }
               }}
               className="flex items-center gap-1.5 px-3 py-1.5 bg-black text-white rounded-full text-xs font-medium hover:bg-black/80 transition-colors"

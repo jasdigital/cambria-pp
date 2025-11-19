@@ -13,17 +13,11 @@ const LeadershipManagementSlide: React.FC = () => (
           </div>
           <div>
             <h3 className="text-lg md:text-xl font-bold uppercase mb-2">
-              Agile Marketing
+              'Mostly' Agile Marketing
             </h3>
             <p className="text-xs md:text-sm text-white/80 leading-relaxed mb-2">
-              Implementing sprint-based workflows, rapid testing cycles, and iterative campaign optimization for faster time-to-market and improved performance
+              Implementing sprint-based workflows, rapid testing cycles, and iterative campaign optimisation for faster time-to-market and improved performance
             </p>
-            <div className="bg-blue-500/20 border border-blue-400/30 rounded px-3 py-2 mt-2">
-              <p className="text-xs font-semibold text-blue-200 mb-1">Key Focus: Managing Team Concerns</p>
-              <p className="text-xs text-white/80 leading-relaxed">
-                Central to agile is creating safe spaces for surfacing blockers, concerns, and challenges early. Daily standups and retrospectives ensure issues are addressed proactively, preventing escalation and maintaining team momentum.
-              </p>
-            </div>
           </div>
         </div>
         <ul className="space-y-2 text-xs md:text-sm ml-13">
@@ -42,10 +36,6 @@ const LeadershipManagementSlide: React.FC = () => (
           <li className="flex gap-2 items-start">
             <span className="mt-1 h-1 w-1 rounded-full bg-white flex-shrink-0" />
             <span>Retrospectives for continuous improvement</span>
-          </li>
-          <li className="flex gap-2 items-start">
-            <span className="mt-1 h-1 w-1 rounded-full bg-white flex-shrink-0" />
-            <span className="font-semibold text-blue-200">Safe environment to raise concerns without blame</span>
           </li>
         </ul>
       </div>
@@ -101,7 +91,7 @@ const LeadershipManagementSlide: React.FC = () => (
             Managing Change & Complexity
           </h3>
           <p className="text-sm md:text-base text-white/90 leading-relaxed mb-4">
-            Drawing from <span className="font-semibold">Mercedes-Benz Leadership Accelerator</span>, an A-Level management programme designed for senior managers navigating organizational transformation and strategic complexity
+            Drawing from <span className="font-semibold">Mercedes-Benz Leadership Accelerator</span>, a management programme designed for senior managers navigating organisational transformation and strategic complexity
           </p>
           
           <div className="grid md:grid-cols-3 gap-4">
@@ -163,30 +153,7 @@ const LeadershipManagementSlide: React.FC = () => (
       </div>
     </div>
 
-    {/* Key Outcomes */}
-    <div className="bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10">
-      <h4 className="text-sm font-semibold uppercase tracking-wide text-white/70 mb-3">
-        Leadership Impact
-      </h4>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-white mb-1">30%</div>
-          <div className="text-xs text-white/70">Faster campaign delivery</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-white mb-1">85%</div>
-          <div className="text-xs text-white/70">Team engagement score</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-white mb-1">40%</div>
-          <div className="text-xs text-white/70">Reduction in project delays</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold text-white mb-1">95%</div>
-          <div className="text-xs text-white/70">Change adoption rate</div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 );
 

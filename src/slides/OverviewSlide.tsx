@@ -5,7 +5,7 @@ const OverviewSlideContent: React.FC = () => {
     {
       title: "Grange",
       subtitle: "Website Review",
-      summary: "UX improvements, used car journey optimization, and local search performance",
+      summary: "UX improvements, navigation, used car journey optimisation, and local search performance",
       color: "from-neutral-700/20 to-neutral-800/30"
     },
     {
@@ -17,7 +17,7 @@ const OverviewSlideContent: React.FC = () => {
     {
       title: "Social",
       subtitle: "Content Strategy",
-      summary: "Management tools, video content, and YouTube Shorts optimization",
+      summary: "Management tools, video content, and YouTube Shorts optimisation",
       color: "from-purple-500/20 to-purple-600/30"
     },
     {
@@ -54,6 +54,15 @@ const OverviewSlideContent: React.FC = () => {
       <div className="mt-4 bg-white/10 backdrop-blur-sm border border-white/20 p-3 text-center">
         <p className="text-xs md:text-sm text-white/90">
           <span className="font-semibold">Focus:</span> Strategic digital review across UX, performance marketing, data enrichment, and retention
+        </p>
+      </div>
+
+      <div className="mt-3 bg-amber-500/20 backdrop-blur-sm border border-amber-400/30 rounded-lg p-3 text-center">
+        <p className="text-xs md:text-sm text-white/90 mb-1">
+          <span className="font-semibold text-amber-300">Note:</span> The presentation of information throughout this deck is illustrative, indicative, and non-exhaustive in scope.
+        </p>
+        <p className="text-xs text-white/70">
+          Content is designed to represent real tooling, source data, and delivery capabilities rather than comprehensive analysis.
         </p>
       </div>
     </>

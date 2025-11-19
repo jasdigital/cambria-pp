@@ -217,6 +217,9 @@ export default function InvictaTopSearchTermsSlide() {
           className="mt-6 text-center text-white/70 text-sm"
         >
           Data from Google Keyword Planner · UK Market · Monthly Averages
+          <div className="mt-2 text-xs text-white/50 italic">
+            * Data shown is indicative and may include unverified, estimated, or time-dependent information
+          </div>
         </motion.div>
       </div>
     </div>
