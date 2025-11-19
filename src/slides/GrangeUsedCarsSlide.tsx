@@ -47,7 +47,7 @@ const GrangeUsedCarsSlideContent: React.FC = () => {
         {
           issue: "Specification & Options ",
           context: "Current specification lists are dense walls of text that overwhelm rather than inform. Restructure using card-based layouts with: grouped categories (Performance, Comfort, Safety, Technology), icon-based feature highlights for quick scanning, expandable sections for detailed specs, visual indicators for premium features, and comparison tools for multiple vehicles. Make technical information approachable and scannable.",
-          screenshots: ["/images/website_ux/used_detail1.png","/images/website_ux/used_detail2.png","/images/website_ux/hr_owen_specification.png","/images/website_ux/used_detail2.png"]
+          screenshots: ["/images/webp/website_ux/used_detail1.webp","/images/webp/website_ux/used_detail2.webp","/images/webp/website_ux/hr_owen_specification.webp","/images/webp/website_ux/used_detail2.webp"]
         }
        
         

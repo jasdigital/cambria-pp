@@ -6,7 +6,7 @@ const GrangeSectionSlideContent: React.FC = () => {
     { src: "/images/logos/aston-martin-logo.svg", alt: "Aston Martin" },
     { src: "/images/logos/bentley-logo.svg", alt: "Bentley" },
     { src: "/images/logos/corvette-logo.svg", alt: "Corvette" },
-    { src: "/images/logos/lamborghini-logo.png", alt: "Lamborghini" },
+    { src: "/images/webp/logos/lamborghini-logo.webp", alt: "Lamborghini" },
     { src: "/images/logos/land-rover-logo.svg", alt: "Land Rover" },
     { src: "/images/logos/mclaren-logo.svg", alt: "McLaren" },
     { src: "/images/logos/ineos-logo.svg", alt: "INEOS" },

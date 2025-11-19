@@ -90,7 +90,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
               {/* Before (Right side) - Interior */}
               <div className="absolute inset-0">
                 <img 
-                  src="/images/e06.jpg"
+                  src="/images/webp/e06.webp"
                   alt="Before - Interior photography"
                   className="w-full h-full object-cover"
                 />
@@ -110,7 +110,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <img 
-                  src="/images/lamborghini_inside_2.jpg"
+                  src="/images/webp/lamborghini_inside_2.webp"
                   alt="After - Interior photography"
                   className="w-full h-full object-cover"
                 />
@@ -129,7 +129,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
               {/* Before (Right side) - External */}
               <div className="absolute inset-0">
                 <img 
-                  src="/images/e04.jpg"
+                  src="/images/webp/e04.webp"
                   alt="Before - External photography"
                   className="w-full h-full object-cover"
                 />
@@ -149,7 +149,7 @@ const GrangeBeforeAfterWipeSlide: React.FC = () => {
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <img 
-                  src="/images/lamborghini_rear_2.jpg"
+                  src="/images/webp/lamborghini_rear_2.webp"
                   alt="After - External photography"
                   className="w-full h-full object-cover"
                 />

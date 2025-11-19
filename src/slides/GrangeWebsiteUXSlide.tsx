@@ -50,7 +50,7 @@ const GrangeWebsiteUXSlideContent: React.FC = () => {
         {
           issue: "Hierarchy & Iconography",
           context: "Headlines compete with body copy - difficult to scan. Need stronger typographic scale with clear font sizes, weights, and spacing to guide attention.",
-          screenshots: ["/images/website_ux/grange_homepage_typography_hierarchy.png","/images/website_ux/Clearer_HierarchyInformation_Iconography.png","/images/website_ux/grange_hierarchy_positive.png"]
+          screenshots: ["/images/webp/website_ux/grange_homepage_typography_hierarchy.webp","/images/webp/website_ux/Clearer_HierarchyInformation_Iconography.webp","/images/webp/website_ux/grange_hierarchy_positive.webp"]
         },
         
       ]
@@ -70,8 +70,8 @@ const GrangeWebsiteUXSlideContent: React.FC = () => {
           issue: "Sticky Menu",
           context: "The main navigation contains too many options at the top level. Always-visible quick actions will embrace simplicity - fewer, more intentional navigation choices that guide users confidently.",
           screenshots: [
-            "/images/website_ux/hr_owen_header.png",
-            "/images/website_ux/lookers_landrover_header-seach-cta-actions.png"
+            "/images/webp/website_ux/hr_owen_header.webp",
+            "/images/webp/website_ux/lookers_landrover_header-seach-cta-actions.webp"
           ]
         },
 
@@ -79,11 +79,11 @@ const GrangeWebsiteUXSlideContent: React.FC = () => {
           issue: "Book a Service Journey - 5 Steps to Primary Action",
           context: "Users must navigate through 5 separate screens to book a service. This multi-level journey can create friction and abandonment. Service booking should be simplified.",
           screenshots: [
-            "/images/book_service/service1.png",
-            "/images/book_service/service2.png",
-            "/images/book_service/service3.png",
-            "/images/book_service/service4.png",
-            "/images/book_service/service5.png"
+            "/images/webp/book_service/service1.webp",
+            "/images/webp/book_service/service2.webp",
+            "/images/webp/book_service/service3.webp",
+            "/images/webp/book_service/service4.webp",
+            "/images/webp/book_service/service5.webp"
           ],
           screenshotLayout: "stack"
         },
@@ -91,7 +91,7 @@ const GrangeWebsiteUXSlideContent: React.FC = () => {
         {
           issue: "Clear Pathways",
           context: "Primary journeys (Used Cars, New Models, Service) lack clear visual hierarchy. Need distinct entry points with obvious labels and icons that guide users confidently without confusion.",
-          screenshots: ["/images/website_ux/Home_CTA.png","/images/website_ux/clearer_pathways.png","/images/website_ux/image_hierarchy_actionable_elements.png","/images/website_ux/breadcrumbs.png","/images/website_ux/grange_breadcrumbs.png"]
+          screenshots: ["/images/webp/website_ux/Home_CTA.webp","/images/webp/website_ux/clearer_pathways.webp","/images/webp/website_ux/image_hierarchy_actionable_elements.webp","/images/webp/website_ux/breadcrumbs.webp","/images/webp/website_ux/grange_breadcrumbs.webp"]
         },
         
       ]
@@ -109,17 +109,17 @@ const GrangeWebsiteUXSlideContent: React.FC = () => {
         {
           issue: "CTA Placement & Prominence",
           context: "Primary calls-to-action don't stand out sufficiently on key pages. 'Enquire', 'Reserve', and 'Book Service' buttons need stronger visual hierarchy and strategic placement at natural decision points in the user journey.",
-          screenshots: ["/images/website_ux/UsedListing_CTA.png"]
+          screenshots: ["/images/webp/website_ux/UsedListing_CTA.webp"]
         },
         {
           issue: "Form Friction",
           context: "Lead capture forms ask for too much information upfront, creating abandonment. Reduce initial fields to essentials (name, phone/email, interest), then progressively capture additional details. Multi-step forms with progress indicators perform better for complex enquiries.",
-          screenshots: ["/images/website_ux/FinanceCalculator.png"]
+          screenshots: ["/images/webp/website_ux/FinanceCalculator.webp"]
         },
         {
           issue: "Trust Signals Missing",
           context: "Limited use of customer testimonials, reviews, ratings, industry awards, and certifications. Premium buyers need reassurance - showcase Google Reviews scores, customer success stories, manufacturer partnerships, and quality guarantees prominently.",
-          screenshots: ["/images/website_ux/trust_signal.png"]
+          screenshots: ["/images/webp/website_ux/trust_signal.webp"]
         }
        
       ]

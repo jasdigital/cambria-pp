@@ -179,7 +179,7 @@ const YouTubeShortsSlide: React.FC = () => {
         <div className="bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg p-3">
           <h4 className="text-sm md:text-base font-semibold mb-2 text-white">TikTok Presence</h4>
           <img 
-            src="/images/social/lamborghini_tiktok.png" 
+            src="/images/webp/social/lamborghini_tiktok.webp" 
             alt="Lamborghini TikTok" 
             className="w-full h-auto rounded border border-white/10"
           />
@@ -187,7 +187,7 @@ const YouTubeShortsSlide: React.FC = () => {
         <div className="bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg p-3">
           <h4 className="text-sm md:text-base font-semibold mb-2 text-white">YouTube Channel</h4>
           <img 
-            src="/images/social/youtube_channel.png" 
+            src="/images/webp/social/youtube_channel.webp" 
             alt="YouTube Channel" 
             className="w-full h-auto rounded border border-white/10"
           />
