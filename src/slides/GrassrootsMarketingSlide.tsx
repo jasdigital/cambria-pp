@@ -67,7 +67,7 @@ export default function GrassrootsMarketingSlide() {
       location: 'Bolton, Bury, Oldham',
       brand: 'All Brands',
       impact: 'B2B opportunity',
-      image: '/images/website_ux/FinanceCalculator.png',
+      image: '/images/webp/website_ux/FinanceCalculator.webp',
       description: 'Chamber of Commerce, business clubs, fleet partnerships',
     },
     {

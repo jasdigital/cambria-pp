@@ -290,7 +290,7 @@ const LinkedInStrategySlide: React.FC = () => {
           <div className="bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg p-3">
             <h4 className="text-xs font-bold mb-2 text-center">LinkedIn Content Example 1</h4>
             <img 
-              src="/images/social/Linked_1.png" 
+              src="/images/webp/social/Linked_1.webp" 
               alt="LinkedIn Content Example 1"
               className="w-full h-auto rounded border border-white/10"
             />
@@ -298,7 +298,7 @@ const LinkedInStrategySlide: React.FC = () => {
           <div className="bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg p-3">
             <h4 className="text-xs font-bold mb-2 text-center">LinkedIn Content Example 2</h4>
             <img 
-              src="/images/social/Linked_2.png" 
+              src="/images/webp/social/Linked_2.webp" 
               alt="LinkedIn Content Example 2"
               className="w-full h-auto rounded border border-white/10"
             />

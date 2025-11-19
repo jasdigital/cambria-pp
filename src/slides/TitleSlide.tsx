@@ -5,7 +5,7 @@ const TitleSlideContent: React.FC = () => (
     {/* Left: Cambria Logo */}
     <div className="flex items-center justify-center">
       <img 
-        src="/images/logos/cambria.png" 
+        src="/images/webp/logos/cambria.webp" 
         alt="Cambria Automobiles"
         className="w-full max-w-md h-auto object-contain"
       />

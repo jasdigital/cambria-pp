@@ -43,9 +43,9 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ children }) => 
         {/* Cambria Logo */}
         <div className="text-center mb-2">
           <img 
-            src="/images/logos/cambria.png" 
+            src="/images/webp/logos/cambria.webp" 
             alt="Cambria Automobiles" 
-            className="h-50 mx-auto mb-2"
+            className="h-30 mx-auto mb-2"
           />
         </div>
 

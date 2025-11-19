@@ -477,7 +477,7 @@ const App: React.FC = () => {
         <div className="flex items-center gap-4">
           {isCambria ? (
             <img 
-              src="/images/logos/cambria.png" 
+              src="/images/webp/logos/cambria.webp" 
               alt="Cambria Automobiles"
               className="h-10 md:h-14 w-auto object-contain"
             />
@@ -533,7 +533,7 @@ const App: React.FC = () => {
       <div 
         className="relative flex-1 flex overflow-hidden bg-gradient-to-br from-neutral-50 to-neutral-200 bg-cover bg-center"
         style={{ 
-          backgroundImage: (isGrange || isInvicta || isCambria) ? 'none' : 'url(/images/amg/AMGEvent-15.jpg)'
+          backgroundImage: (isGrange || isInvicta || isCambria) ? 'none' : 'url(/images/webp/amg/AMGEvent-15.webp)'
         }}
       >
         {/* Video background for Grange section slide */}
